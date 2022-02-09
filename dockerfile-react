@@ -1,0 +1,27 @@
+### Standar dockerfile image setup (starting from an existing docker image)
+# Starting from existing node docker container image
+FROM node:16
+ARG APP_PATH=/etc/beamg
+
+### Start of application setup
+# Change working directory to thef inal destination
+WORKDIR ${APP_PATH}
+ENV PATH ${APP_PATH}/06_React/node_modules/.bin:$PATH
+
+### Start of package and pre-requisites install and setup
+# Installing git onto THIS docker image
+RUN apt update && apt install -y git
+
+### Start of scpecific application download and configuration
+# Clone the conf files into the docker container
+RUN git clone https://github.com/BeatrizMarGar/06_React.git
+
+# Change working directory to app dir
+WORKDIR ${APP_PATH}/06_React/
+
+# starting application setup
+RUN npm install
+RUN npm run build
+
+EXPOSE 3000
+CMD [ "npm", "start" ]

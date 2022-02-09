@@ -1,0 +1,33 @@
+version: '3'
+services:
+  practica07:
+    build:
+      context: .
+      dockerfile: dockerfile-nodepop
+      args:
+        SECRET_JWT: "558746988"
+        MONGDB_URL: "mongodb://10.1.1.3/nodepop"
+    image: beamg/practica07
+    container_name: practica07
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+  practica06:
+    build:
+      context: .
+      dockerfile: dockerfile-react
+    image: beamg/practica06
+    container_name: practica06
+    restart: unless-stopped
+    ports:
+      - 3001:3000
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: practica07_mongodb
+    restart: always
+    ports:
+      - 27017:27017

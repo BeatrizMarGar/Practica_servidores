@@ -1,0 +1,31 @@
+### Standar dockerfile image setup (starting from an existing docker image)
+# Starting from existing node docker container image
+FROM node:16
+ARG SECRET_JWT
+ARG MONGDB_URL
+
+### Start of application setup
+# Change working directory to thef inal destination
+WORKDIR /etc/beamg
+
+### Start of package and pre-requisites install and setup
+# Installing git onto THIS docker image
+RUN apt update && apt install -y git
+
+### Start of scpecific application download and configuration
+# Clone the conf files into the docker container
+RUN git clone https://github.com/BeatrizMarGar/07_NODE_AVANZADO.git
+
+# Change working directory to app dir
+WORKDIR /etc/beamg/07_NODE_AVANZADO/
+
+# add .env
+RUN echo "SECRET_JWT=${SECRET_JWT}" > ./.env
+RUN echo "MONGDB_URL=${MONGDB_URL}" >> ./.env
+RUN cat ./.env
+
+# starting application setup
+RUN npm install
+
+EXPOSE 3000
+CMD [ "npm", "start" ]
