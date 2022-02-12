@@ -5,28 +5,27 @@ versión 1.0 2022.02.06@22:37
 ## Enlaces
 
 Práctica React http://3.91.199.170/login
+
 Práctica Node + Backend http://ec2-3-91-199-170.compute-1.amazonaws.com/login
+
 Ruta a imagen http://ec2-3-91-199-170.compute-1.amazonaws.com/images/anuncios/bici.jpg
 
 ## Requisitos previos
 
-### Instalar docker
-
-Para instalar bien docker hay que venir al sur (pon aquí tu texto, wapa), ejemplo válido para Ubuntu y Debian
+### Instalar docker en Ubuntu y Debian
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y docker
 ```
 ### Instalar docker-compose
 
-Para instalar bien docker hay que venir al sur (pon aquí tu texto, wapa)
 
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## Los Fichero
+## Los Ficheros
 
 ### El dockerfile
 
@@ -98,7 +97,7 @@ services:
 ## Pasos:
 
 1. Instalar docker
-2. Instalad docker-compose
+2. Instalar docker-compose
 3. Descargar dockerfile + docker-compose.yml
 4. ejecutar (desde el directorio donde esté dockerfile + docker-compose.yml)
 ```bash
