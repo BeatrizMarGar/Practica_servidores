@@ -7,6 +7,8 @@ versión 1.0 2022.02.06@22:37
 Práctica React http://3.91.199.170/login
 
 Práctica Node + Backend http://ec2-3-91-199-170.compute-1.amazonaws.com/login
+  - USUARIO: admin@example.com
+  - CONTRASEÑA: 1234
 
 Ruta a imagen http://ec2-3-91-199-170.compute-1.amazonaws.com/images/anuncios/bici.jpg
 
