@@ -29,7 +29,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Los Ficheros
 
-Antes de utilizar estos ficheros, se deben modificar para indicar la dirección del servidor donde va a alojarse
+Antes de utilizar estos ficheros, se deben modificar para indicar la dirección desde donde escucha Mongo. En el código, las zonas a modificar se muestran como <your.ip.direction.of.mongo>
 
 ### El dockerfile
 
@@ -81,7 +81,7 @@ services:
       dockerfile: dockerfile
       args:
         SECRET_JWT: "558746988"
-        MONGDB_URL: "mongodb://<ip.direcction>/nodepop"
+        MONGDB_URL: "mongodb://<your.ip.direction.of.mongo>/nodepop"
     image: beamg/practica07
     container_name: practica07
     restart: unless-stopped
