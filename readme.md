@@ -32,7 +32,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 Antes de utilizar estos ficheros, se deben modificar para indicar las direcciones desde donde escucha Mongo y desde dónde se va a mostrar. Estos cambios deben hacerse en los siguientes archivos:
 
 - docker-compose.yml
-    · <your.ip.direction.of.mongo>
+    · <your.mongo.direction>
 
 - nginx.conf
     · <your.ip.direction>
@@ -85,10 +85,10 @@ services:
   practica07:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: dockerfile-nodepop
       args:
         SECRET_JWT: "558746988"
-        MONGDB_URL: "mongodb://<your.ip.direction.of.mongo>/nodepop"
+        MONGDB_URL: "mongodb://<your.mongo.direction>/nodepop"
     image: beamg/practica07
     container_name: practica07
     restart: unless-stopped
@@ -96,13 +96,33 @@ services:
       - 3000:3000
     depends_on:
       - mongo
-
+  practica06:
+    build:
+      context: .
+      dockerfile: dockerfile-react
+    image: beamg/practica06
+    container_name: practica06
+    restart: unless-stopped
+    ports:
+      - 3001:3000
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     container_name: practica07_mongodb
     restart: always
     ports:
       - 27017:27017
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - /home/ubuntu/NODEPOP/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /home/ubuntu/NODEPOP/nginx/logs:/etc/nginx/logs
+
 ```
 
 ## Pasos:
