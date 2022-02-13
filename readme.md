@@ -29,7 +29,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Los Ficheros
 
-Antes de utilizar estos ficheros, se deben modificar para indicar la dirección desde donde escucha Mongo. En el código, las zonas a modificar se muestran como <your.ip.direction.of.mongo>
+Antes de utilizar estos ficheros, se deben modificar para indicar las direcciones desde donde escucha Mongo y desde dónde se va a mostrar. Estos cambios deben hacerse en los siguientes archivos:
+
+- docker-compose.yml
+    · <your.ip.direction.of.mongo>
+
+- nginx.conf
+    · <your.ip.direction>
+    · <your.dns.direction>
 
 ### El dockerfile
 
