@@ -38,5 +38,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - /home/ubuntu/NODEPOP/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - /home/ubuntu/NODEPOP/nginx/logs:/etc/nginx/logs
+      - <your.folder>/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - <your.folder>/NODEPOP/nginx/logs:/etc/nginx/logs
