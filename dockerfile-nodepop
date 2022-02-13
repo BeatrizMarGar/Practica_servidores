@@ -26,6 +26,10 @@ RUN cat ./.env
 
 # starting application setup
 RUN npm install
+#RUN mkdir /data
+#RUN mkdir /data/db
+# RUN mongod & node install_db.js 
+#RUN mongod & node init-db.js
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
