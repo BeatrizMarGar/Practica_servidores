@@ -29,17 +29,19 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Los Ficheros
 
+Antes de utilizar estos ficheros, se deben modificar para indicar la dirección del servidor donde va a alojarse
+
 ### El dockerfile
 
 ```Dockerfile
-### Standar dockerfile image setup (starting from an existing docker image)
+### Standard dockerfile image setup (starting from an existing docker image)
 # Starting from existing node docker container image
 FROM node:16
 ARG SECRET_JWT
 ARG MONGDB_URL
 
 ### Start of application setup
-# Change working directory to thef inal destination
+# Change working directory to the final destination
 WORKDIR /etc/beamg
 
 ### Start of package and pre-requisites install and setup
@@ -79,7 +81,7 @@ services:
       dockerfile: dockerfile
       args:
         SECRET_JWT: "558746988"
-        MONGDB_URL: "mongodb://10.1.1.3/nodepop"
+        MONGDB_URL: "mongodb://<ip.direcction>/nodepop"
     image: beamg/practica07
     container_name: practica07
     restart: unless-stopped
