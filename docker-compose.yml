@@ -6,7 +6,7 @@ services:
       dockerfile: dockerfile-nodepop
       args:
         SECRET_JWT: "558746988"
-        MONGDB_URL: "mongodb://10.1.1.3/nodepop"
+        MONGDB_URL: "mongodb://<your.ip.direction.of.mongo>/nodepop"
     image: beamg/practica07
     container_name: practica07
     restart: unless-stopped
