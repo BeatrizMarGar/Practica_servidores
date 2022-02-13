@@ -46,14 +46,14 @@ Antes de utilizar estos ficheros, se deben modificar para indicar las direccione
 ### El dockerfile
 
 ```Dockerfile
-### Standard dockerfile image setup (starting from an existing docker image)
+### Standar dockerfile image setup (starting from an existing docker image)
 # Starting from existing node docker container image
 FROM node:16
 ARG SECRET_JWT
 ARG MONGDB_URL
 
 ### Start of application setup
-# Change working directory to the final destination
+# Change working directory to thef inal destination
 WORKDIR /etc/beamg
 
 ### Start of package and pre-requisites install and setup
